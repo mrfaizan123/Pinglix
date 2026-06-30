@@ -1395,3 +1395,177 @@
 {"level":"info","message":"MongoDB Connected: localhost","timestamp":"2026-06-30T14:51:55.195Z"}
 {"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T14:51:55.245Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T14:51:55.256Z"}
+{"level":"info","message":"MongoDB Connected: localhost","timestamp":"2026-06-30T17:05:53.351Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:05:53.426Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:05:53.436Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:06:00.007Z"}
+{"level":"info","message":"Found 1 websites to ping.","timestamp":"2026-06-30T17:06:00.148Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 680ms","timestamp":"2026-06-30T17:06:01.008Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:06:11 +0000] \"GET /api/auth/me HTTP/1.1\" 401 1314 \"http://localhost:5173/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:06:11.702Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:06:11 +0000] \"GET /api/auth/me HTTP/1.1\" 401 1314 \"http://localhost:5173/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:06:11.716Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:07:00.004Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:01 +0000] \"POST /api/auth/login HTTP/1.1\" 200 298 \"http://localhost:5173/login\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:01.043Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:01 +0000] \"GET /api/websites HTTP/1.1\" 200 429 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:01.275Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:01 +0000] \"GET /api/websites HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:01.294Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:01 +0000] \"GET /api/dashboard HTTP/1.1\" 200 2882 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:01.391Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:01 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:01.419Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:01 +0000] \"GET /api/websites/6a42b82ac03cf3916be13cc3/uptime HTTP/1.1\" 200 80 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:01.512Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:01 +0000] \"GET /api/websites/6a42b82ac03cf3916be13cc3/uptime HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:01.536Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:05 +0000] \"GET /api/websites/6a42b82ac03cf3916be13cc3/logs?limit=20 HTTP/1.1\" 200 3934 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:05.341Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 314ms","timestamp":"2026-06-30T17:07:09.457Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:09 +0000] \"POST /api/websites/6a42b82ac03cf3916be13cc3/ping HTTP/1.1\" 200 672 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:09.462Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:09 +0000] \"GET /api/dashboard HTTP/1.1\" 200 2882 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:09.505Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:09 +0000] \"GET /api/websites/6a42b82ac03cf3916be13cc3/uptime HTTP/1.1\" 200 80 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:09.558Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/websites HTTP/1.1\" 200 429 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.672Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.694Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/websites/6a42b82ac03cf3916be13cc3/uptime HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.769Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/websites HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.862Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.886Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/websites/6a42b82ac03cf3916be13cc3/uptime HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.943Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/websites HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.964Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:13 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:13.980Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:07:14 +0000] \"GET /api/websites/6a42b82ac03cf3916be13cc3/uptime HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:07:14.066Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:08:00.008Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:09:00.014Z"}
+{"level":"info","message":"Found 1 websites to ping.","timestamp":"2026-06-30T17:09:00.018Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 293ms","timestamp":"2026-06-30T17:09:00.317Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:10:00.005Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:11:00.009Z"}
+{"level":"info","message":"Found 1 websites to ping.","timestamp":"2026-06-30T17:11:00.032Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 511ms","timestamp":"2026-06-30T17:11:00.569Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:12:00.006Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:13:00.018Z"}
+{"level":"info","message":"Found 1 websites to ping.","timestamp":"2026-06-30T17:13:00.023Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 626ms","timestamp":"2026-06-30T17:13:00.659Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:14:00.008Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:15:00.008Z"}
+{"level":"info","message":"Found 1 websites to ping.","timestamp":"2026-06-30T17:15:00.012Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 404ms","timestamp":"2026-06-30T17:15:00.422Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:16:00.007Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:17:00.018Z"}
+{"level":"info","message":"Found 1 websites to ping.","timestamp":"2026-06-30T17:17:00.021Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 374ms","timestamp":"2026-06-30T17:17:00.399Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:18:00.004Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:19:00.010Z"}
+{"level":"info","message":"Found 1 websites to ping.","timestamp":"2026-06-30T17:19:00.016Z"}
+{"level":"info","message":"Pinged https://mohd-faizan.onrender.com - Status: up - Time: 510ms","timestamp":"2026-06-30T17:19:00.535Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-02.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:20:01.318Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:20:01.457Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:20:01.468Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:20:49.180Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:20:49.293Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:20:49.305Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:00.048Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:00.157Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:00.169Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-00.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:08.757Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:08.788Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:08.795Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-02.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:24.895Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:25.030Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:25.050Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:31.742Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:31.796Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:31.817Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:36.371Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:36.401Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:36.408Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-00.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:44.651Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:44.704Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:44.718Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:49.691Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:49.735Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:49.746Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:53.854Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:53.892Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:53.905Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-02.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:21:59.635Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:21:59.668Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:21:59.676Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-00.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:02.338Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:02.372Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:02.380Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:06.553Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:06.591Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:06.604Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:09.297Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:09.329Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:09.337Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:15.638Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:15.680Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:15.688Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:18.522Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:18.557Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:18.565Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-02.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:40.126Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:40.164Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:40.176Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:42.399Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:42.431Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:42.441Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-00.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:47.457Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:47.489Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:47.499Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-00.ngaxhni.mongodb.net","timestamp":"2026-06-30T17:22:51.681Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-06-30T17:22:51.713Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-06-30T17:22:51.721Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:23:00.019Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:23:46 +0000] \"GET /api/auth/me HTTP/1.1\" 401 1314 \"http://localhost:5173/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:23:46.734Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:23:46 +0000] \"GET /api/auth/me HTTP/1.1\" 401 1314 \"http://localhost:5173/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:23:46.752Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:23:56 +0000] \"POST /api/auth/login HTTP/1.1\" 401 351 \"http://localhost:5173/login\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:23:56.467Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:24:00.011Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:11 +0000] \"POST /api/auth/register HTTP/1.1\" 201 293 \"http://localhost:5173/register\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:11.259Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:11 +0000] \"GET /api/websites HTTP/1.1\" 200 36 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:11.498Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:11 +0000] \"GET /api/dashboard HTTP/1.1\" 200 188 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:11.506Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:11 +0000] \"GET /api/websites HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:11.595Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:11 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:11.599Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:15 +0000] \"POST /api/auth/logout HTTP/1.1\" 200 26 \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:15.477Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:23 +0000] \"POST /api/auth/login HTTP/1.1\" 200 293 \"http://localhost:5173/login\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:23.442Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:25 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:25.249Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:25 +0000] \"GET /api/websites HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:25.253Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:26 +0000] \"GET /api/websites HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:26.216Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:26 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:26.219Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:54 +0000] \"GET /api/dashboard HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:54.169Z"}
+{"level":"info","message":"::1 - - [30/Jun/2026:17:24:54 +0000] \"GET /api/websites HTTP/1.1\" 304 - \"http://localhost:5173/dashboard\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"","timestamp":"2026-06-30T17:24:54.171Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:25:00.014Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:26:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:27:00.010Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:28:00.023Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:29:00.007Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:30:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:31:00.016Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:32:00.015Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:33:00.003Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:34:00.014Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:35:00.004Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:36:00.014Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:37:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:38:00.001Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:39:00.011Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:40:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:41:00.008Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:42:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:43:00.008Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:44:00.012Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:45:00.014Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:46:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:47:00.005Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:48:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:49:00.004Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:50:00.003Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:51:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:52:00.004Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:53:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:54:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:55:00.005Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:56:00.003Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:57:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:58:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T17:59:00.002Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:00:00.003Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:01:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:02:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:03:00.010Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:04:00.005Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:05:00.011Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:06:00.006Z"}

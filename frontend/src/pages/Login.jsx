@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Activity } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import SEOHead from '../components/SEOHead';
+
 const Login = () => {
    
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -27,7 +29,13 @@ const Login = () => {
 
   return (
     <>
-   <Navbar></Navbar>
+      <SEOHead
+        title="Login – Pinglix | Sign In to Your Monitoring Dashboard"
+        description="Sign in to your Pinglix account to manage your website monitors, view real-time uptime stats, and track latency across all your endpoints."
+        canonical="https://pinglix.onrender.com/login"
+        noIndex={false}
+      />
+      <Navbar />
 
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       <div className='nav'>

@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Activity } from 'lucide-react';
 import Navbar from "../components/Navbar";
+import SEOHead from '../components/SEOHead';
+
 const Register = () => {
   const { register: registerForm, handleSubmit, formState: { errors }, watch } = useForm();
   const [serverError, setServerError] = useState('');
@@ -28,7 +30,13 @@ const Register = () => {
 
   return (
     <>
-    <Navbar></Navbar>
+      <SEOHead
+        title="Get Started Free – Pinglix | Free Website Uptime Monitoring"
+        description="Create your free Pinglix account and start monitoring your websites in under 60 seconds. Track uptime, latency, and prevent cold starts on Render, Heroku, and more."
+        canonical="https://pinglix.onrender.com/register"
+        noIndex={false}
+      />
+      <Navbar />
     
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-primary/20 rounded-full blur-3xl" />

@@ -4,9 +4,7 @@ const asyncHandler = require('../utils/asyncHandler');
 const AppError = require('../utils/AppError');
 const PingService = require('../services/PingService');
 
-// @desc    Get all websites for logged in user
-// @route   GET /api/websites
-// @access  Private
+
 exports.getWebsites = asyncHandler(async (req, res, next) => {
   const websites = await Website.find({ userId: req.user.id }).sort({ createdAt: -1 });
 
@@ -17,19 +15,17 @@ exports.getWebsites = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Add new website
-// @route   POST /api/websites
-// @access  Private
+
 exports.addWebsite = asyncHandler(async (req, res, next) => {
   const { websiteName, url, pingInterval } = req.body;
 
-  // Check if website url already exists for this user
+  
   const existingWebsite = await Website.findOne({ userId: req.user.id, url });
   if (existingWebsite) {
     return next(new AppError('You have already added this URL', 400));
   }
 
-  // Validate URL reachability using PingService
+
   const isValid = await PingService.validateURL(url);
   if (!isValid) {
     return next(new AppError('URL is unreachable or invalid', 400));
@@ -40,11 +36,11 @@ exports.addWebsite = asyncHandler(async (req, res, next) => {
     websiteName,
     url,
     pingInterval: pingInterval || 5,
-    // We will set nextPing to now so we can ping it immediately, but pingWebsite handles updating nextPing anyway
+   
     nextPing: new Date() 
   });
 
-  // Perform the first actual ping immediately to generate a log and update status from 'unknown' to 'up'/'down'
+ 
   await PingService.pingWebsite(website);
 
   res.status(201).json({
@@ -53,9 +49,7 @@ exports.addWebsite = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Update website details
-// @route   PATCH /api/websites/:id
-// @access  Private
+
 exports.updateWebsite = asyncHandler(async (req, res, next) => {
   let website = await Website.findById(req.params.id);
 
@@ -63,7 +57,7 @@ exports.updateWebsite = asyncHandler(async (req, res, next) => {
     return next(new AppError('Website not found', 404));
   }
 
-  // Make sure user owns the website
+
   if (website.userId.toString() !== req.user.id) {
     return next(new AppError('Not authorized to update this website', 401));
   }
@@ -79,9 +73,7 @@ exports.updateWebsite = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Toggle website active status
-// @route   PATCH /api/websites/:id/toggle
-// @access  Private
+
 exports.toggleWebsite = asyncHandler(async (req, res, next) => {
   const website = await Website.findById(req.params.id);
 
@@ -94,7 +86,7 @@ exports.toggleWebsite = asyncHandler(async (req, res, next) => {
   }
 
   website.isActive = !website.isActive;
-  // If reactivating, update nextPing to avoid immediate ping flood
+
   if (website.isActive) {
     website.nextPing = PingService.calculateNextPing(website.pingInterval);
   }
@@ -107,9 +99,7 @@ exports.toggleWebsite = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Delete website and its logs
-// @route   DELETE /api/websites/:id
-// @access  Private
+
 exports.deleteWebsite = asyncHandler(async (req, res, next) => {
   const website = await Website.findById(req.params.id);
 
@@ -121,7 +111,7 @@ exports.deleteWebsite = asyncHandler(async (req, res, next) => {
     return next(new AppError('Not authorized to delete this website', 401));
   }
 
-  // Delete all associated ping logs
+  
   await PingLog.deleteMany({ websiteId: website._id });
   await website.deleteOne();
 
@@ -131,9 +121,7 @@ exports.deleteWebsite = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Get website ping logs
-// @route   GET /api/websites/:id/logs
-// @access  Private
+
 exports.getWebsiteLogs = asyncHandler(async (req, res, next) => {
   const website = await Website.findById(req.params.id);
 
@@ -170,9 +158,7 @@ exports.getWebsiteLogs = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Get dashboard stats
-// @route   GET /api/dashboard
-// @access  Private
+
 exports.getDashboardStats = asyncHandler(async (req, res, next) => {
   const websites = await Website.find({ userId: req.user.id }).lean();
   const websiteIds = websites.map(w => w._id);
@@ -194,7 +180,6 @@ exports.getDashboardStats = asyncHandler(async (req, res, next) => {
     ? Math.round(totalResponseTime / countWithResponseTime)
     : 0;
 
-  // Total pings in last 24h + uptime % across all monitors
   const since24h = new Date(Date.now() - 24 * 60 * 60 * 1000);
   const recentLogs = websiteIds.length
     ? await PingLog.find({ websiteId: { $in: websiteIds }, checkedAt: { $gte: since24h } }).lean()
@@ -206,12 +191,11 @@ exports.getDashboardStats = asyncHandler(async (req, res, next) => {
     ? parseFloat(((successChecks24h / totalChecks24h) * 100).toFixed(2))
     : null;
 
-  // Total incidents (down events ever)
+ 
   const totalIncidents = websiteIds.length
     ? await PingLog.countDocuments({ websiteId: { $in: websiteIds }, success: false })
     : 0;
 
-  // Recent activity feed: last 10 pings across ALL monitors (enriched with website name)
   const recentActivity = websiteIds.length
     ? await PingLog.find({ websiteId: { $in: websiteIds } })
         .sort({ checkedAt: -1 })
@@ -219,7 +203,6 @@ exports.getDashboardStats = asyncHandler(async (req, res, next) => {
         .lean()
     : [];
 
-  // Map website names into activity feed
   const websiteMap = {};
   websites.forEach(w => { websiteMap[w._id.toString()] = { name: w.websiteName, url: w.url }; });
   const enrichedActivity = recentActivity.map(log => ({
@@ -243,9 +226,7 @@ exports.getDashboardStats = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Get per-website uptime percentage (last 30 days)
-// @route   GET /api/websites/:id/uptime
-// @access  Private
+
 exports.getWebsiteUptime = asyncHandler(async (req, res, next) => {
   const website = await Website.findById(req.params.id);
   if (!website) return next(new AppError('Website not found', 404));
@@ -288,9 +269,7 @@ const drawBadge = (label, value, color) => {
   </svg>`;
 };
 
-// @desc    Get public uptime badge
-// @route   GET /api/websites/:id/badge
-// @access  Public
+
 exports.getWebsiteBadge = asyncHandler(async (req, res, next) => {
   const website = await Website.findById(req.params.id);
   if (!website) {
@@ -308,16 +287,16 @@ exports.getWebsiteBadge = asyncHandler(async (req, res, next) => {
   const uptime = total > 0 ? parseFloat(((successful / total) * 100).toFixed(2)) : null;
 
   let uptimeText = 'no data';
-  let color = '#6B7280'; // grey
+  let color = '#6B7280'; 
 
   if (uptime !== null) {
     uptimeText = `${uptime}%`;
     if (uptime >= 99) {
-      color = '#10B981'; // emerald-500
+      color = '#10B981';
     } else if (uptime >= 95) {
-      color = '#F59E0B'; // amber-500
+      color = '#F59E0B'; 
     } else {
-      color = '#EF4444'; // red-500
+      color = '#EF4444'; 
     }
   }
 
@@ -327,9 +306,7 @@ exports.getWebsiteBadge = asyncHandler(async (req, res, next) => {
   res.status(200).send(svg);
 });
 
-// @desc    Manually trigger website ping
-// @route   POST /api/websites/:id/ping
-// @access  Private
+
 exports.manualPingWebsite = asyncHandler(async (req, res, next) => {
   const website = await Website.findById(req.params.id);
 
@@ -341,10 +318,10 @@ exports.manualPingWebsite = asyncHandler(async (req, res, next) => {
     return next(new AppError('Not authorized to ping this website', 401));
   }
 
-  // Trigger the ping
+  
   await PingService.pingWebsite(website);
 
-  // Fetch the latest log that was just created
+  
   const latestLog = await PingLog.findOne({ websiteId: website._id }).sort({ checkedAt: -1 }).lean();
 
   res.status(200).json({

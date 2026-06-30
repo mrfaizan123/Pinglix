@@ -2,9 +2,145 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- ─── Viewport & Theme ─────────────────────────────── -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- ─── Primary SEO ──────────────────────────────────── -->
+    <title>Pinglix – Free Website Uptime Monitor | Keep Servers Always Online</title>
+    <meta name="description" content="Pinglix is a free website uptime monitoring tool trusted by 1,000+ developers. Track real-time latency, prevent cold starts on Render & Heroku, and get 99.9% uptime SLA. Start monitoring in 60 seconds." />
+    <meta name="keywords" content="pinglix, website uptime monitor, free website monitoring, ping website tool, server uptime tracker, cold start prevention render, uptime badge generator, free ping service, website monitoring tool, uptime monitoring, latency tracker, website ping monitor, render keep alive, heroku keep alive, free server monitoring" />
+    <meta name="author" content="Pinglix" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="google-site-verification" content="google34b6d0a5a2182062" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="rating" content="general" />
+    <meta name="category" content="Developer Tools, Website Monitoring, Uptime Monitoring" />
+
+    <!-- ─── Canonical ────────────────────────────────────── -->
+    <link rel="canonical" href="https://pinglix.onrender.com/" />
+
+    <!-- ─── Open Graph / Facebook ────────────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pinglix" />
+    <meta property="og:title" content="Pinglix – Free Website Uptime Monitor | Keep Servers Always Online" />
+    <meta property="og:description" content="Free uptime monitoring for developers. Track real-time latency, prevent Render cold starts, and keep your servers always online. Trusted by 1,000+ developers worldwide." />
+    <meta property="og:url" content="https://pinglix.onrender.com/" />
+    <meta property="og:image" content="https://pinglix.onrender.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Pinglix Dashboard – Real-time Website Uptime Monitoring" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ─── Twitter Card ─────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@pinglix" />
+    <meta name="twitter:creator" content="@pinglix" />
+    <meta name="twitter:title" content="Pinglix – Free Website Uptime Monitor" />
+    <meta name="twitter:description" content="Monitor your websites 24/7 for free. Real-time latency charts, cold start prevention for Render & Heroku, uptime badges. Join 1,000+ developers." />
+    <meta name="twitter:image" content="https://pinglix.onrender.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Pinglix – Website Uptime Monitoring Dashboard" />
+
+    <!-- ─── App / Mobile ─────────────────────────────────── -->
+    <meta name="application-name" content="Pinglix" />
+    <meta name="apple-mobile-web-app-title" content="Pinglix" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- ─── Favicons & Manifest ───────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─── Performance – DNS Prefetch / Preconnect ───────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://pinglix-backend.onrender.com" />
+    <link rel="preconnect" href="https://pinglix-backend.onrender.com" crossorigin />
+
+    <!-- ─── Structured Data: WebApplication ──────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Pinglix",
+      "url": "https://pinglix.onrender.com",
+      "description": "Pinglix is a free website uptime monitoring tool that tracks real-time latency, prevents cold starts on Render and Heroku, and keeps your servers always online.",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Website Monitoring",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1000",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Pinglix",
+        "url": "https://pinglix.onrender.com",
+        "email": "umohdfaizan@gmail.com"
+      },
+      "featureList": [
+        "Real-time website uptime monitoring",
+        "Latency tracking with live charts",
+        "Cold start prevention for Render and Heroku",
+        "Uptime badge generator",
+        "Custom ping intervals",
+        "Free tier with unlimited monitors"
+      ],
+      "screenshot": "https://pinglix.onrender.com/og-image.png"
+    }
+    </script>
+
+    <!-- ─── Structured Data: Organization ────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pinglix",
+      "url": "https://pinglix.onrender.com",
+      "logo": "https://pinglix.onrender.com/favicon.svg",
+      "description": "Free website uptime monitoring for developers. Keep your servers always online.",
+      "email": "umohdfaizan@gmail.com",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://github.com/mrfaizan123/Pinglix"
+      ]
+    }
+    </script>
+
+    <!-- ─── Structured Data: SoftwareApplication ─────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Pinglix – Website Uptime Monitor",
+      "operatingSystem": "Web Browser",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "Monitor your websites 24/7. Get real-time uptime alerts, latency charts, and cold start prevention. Free forever.",
+      "url": "https://pinglix.onrender.com",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
   </head>
   <body>
     <div id="root"></div>

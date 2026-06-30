@@ -5,7 +5,7 @@ const PingLog = require('../models/PingLog');
 
 class PingService {
   /**
-   * Calculate the next ping time based on the interval
+  
    * @param {Number} intervalMinutes 
    * @returns {Date}
    */
@@ -16,13 +16,13 @@ class PingService {
   }
 
   /**
-   * Validate if a URL exists and is reachable
+   
    * @param {String} url 
    * @returns {Promise<Boolean>}
    */
   static async validateURL(url) {
     try {
-      // Use a short timeout just to verify existence
+      
       await axios.get(url, { 
         timeout: 5000,
         headers: { 'User-Agent': 'Pinglix-Bot/1.0' }
@@ -35,7 +35,7 @@ class PingService {
   }
 
   /**
-   * Ping a specific website and log the result
+   
    * @param {Object} website - Mongoose Website Document
    */
   static async pingWebsite(website) {

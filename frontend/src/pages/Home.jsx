@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import SEOHead from '../components/SEOHead';
 import logo from "../assets/image.png"
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from 'recharts';
 import {
@@ -347,9 +348,91 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
+  // ─── JSON-LD Structured Data for Home Page ─────────────────────
+  const homeFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Pinglix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pinglix is a free website uptime monitoring tool that continuously pings your web endpoints, tracks real-time latency, and prevents free-tier cold starts on platforms like Render and Heroku. It's trusted by 1,000+ developers worldwide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Pinglix free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Pinglix is completely free to use. You can monitor unlimited websites, track uptime and latency, and prevent cold starts without any cost. Start monitoring in under 60 seconds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Pinglix prevent cold starts on Render and Heroku?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pinglix periodically sends HTTP requests to your server at custom intervals (as low as every 1 minute). This keeps free-tier services like Render and Heroku from spinning down due to inactivity, preventing cold starts and ensuring instant response times for your users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What platforms does Pinglix support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pinglix works with any web-accessible URL. It's optimized for popular cloud platforms including Render, Heroku, Railway, Vercel, AWS, and DigitalOcean. If your service has a public URL, Pinglix can monitor it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often does Pinglix check my website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can configure custom ping intervals from 1 minute to 60 minutes. Pinglix uses a background scheduler to perform checks at your specified interval without blocking the main application thread."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Pinglix provide uptime badges?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Pinglix generates public SVG uptime badges for each monitored website. You can embed these badges in your README, portfolio, or status page to showcase real-time uptime to your users and clients."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pinglix.onrender.com/"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 overflow-x-hidden selection:bg-blue-500/30 transition-colors duration-200">
+
+      {/* ── SEO HEAD ── */}
+      <SEOHead
+        title="Pinglix – Free Website Uptime Monitor | Keep Servers Always Online"
+        description="Pinglix monitors your websites 24/7 for free. Track real-time latency, prevent Render & Heroku cold starts, generate uptime badges. Trusted by 1,000+ developers. Start in 60 seconds."
+        canonical="https://pinglix.onrender.com/"
+        jsonLd={homeFaqSchema}
+      />
+
+      {/* Breadcrumb JSON-LD */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <Navbar />
+
 
       {/* ── HERO ── */}
       <section className="relative pt-20 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -427,7 +510,9 @@ const Home = () => {
 
     <img
         src={logo}
-        alt=""
+        alt="Pinglix Dashboard – Real-time Website Uptime Monitoring Tool showing latency charts and uptime statistics"
+        title="Pinglix – Free Website Uptime Monitor"
+        loading="eager"
         className="relative z-10 w-full max-w-5xl
         hover:scale-[1.02]
         transition duration-700"
@@ -553,6 +638,74 @@ const Home = () => {
           </div>
 
           <TestimonialCarousel />
+        </div>
+      </section>
+
+      {/* ── FAQ SECTION ── */}
+      <section
+        data-lazy-section
+        className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 lazy-section"
+        aria-label="Frequently Asked Questions about Pinglix"
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/50 px-4 py-2 rounded-full mb-4">
+              <Activity size={13} className="text-blue-500" />
+              FAQ
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4">Frequently Asked <span className="text-blue-600 dark:text-blue-400">Questions</span></h2>
+            <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+              Everything you need to know about Pinglix – the free website uptime monitoring tool for developers.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: 'What is Pinglix?',
+                a: 'Pinglix is a free website uptime monitoring tool that continuously pings your web endpoints, tracks real-time latency, and prevents free-tier cold starts on platforms like Render and Heroku. Trusted by 1,000+ developers worldwide.'
+              },
+              {
+                q: 'Is Pinglix free to use?',
+                a: 'Yes, Pinglix is completely free. Monitor unlimited websites, track uptime and latency, and prevent cold starts — all at zero cost. Start monitoring in under 60 seconds with no credit card required.'
+              },
+              {
+                q: 'How does Pinglix prevent Render & Heroku cold starts?',
+                a: 'Pinglix sends periodic HTTP pings to your server at your chosen interval (as low as 1 minute). This keeps free-tier services active and prevents the spin-down that causes slow cold starts for your users.'
+              },
+              {
+                q: 'What platforms does Pinglix support?',
+                a: 'Pinglix works with any publicly accessible URL — Render, Heroku, Railway, Vercel, AWS, DigitalOcean, and more. If it has a URL, Pinglix can monitor it.'
+              },
+              {
+                q: 'How often does Pinglix check my website?',
+                a: 'You choose the interval — anywhere from every 1 minute to every 60 minutes. Our background scheduler handles checks without blocking your application.'
+              },
+              {
+                q: 'Does Pinglix provide uptime badges?',
+                a: 'Yes! Pinglix generates embeddable SVG uptime badges for each monitored site. Add them to your GitHub README or portfolio to show clients your real-time uptime stats.'
+              },
+            ].map((item, i) => (
+              <details
+                key={i}
+                className="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <summary className="flex items-center justify-between p-6 cursor-pointer list-none select-none">
+                  <h3 className="font-semibold text-slate-900 dark:text-white text-base pr-4 group-open:text-blue-600 dark:group-open:text-blue-400 transition-colors">
+                    {item.q}
+                  </h3>
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 group-open:bg-blue-600 group-open:text-white transition-all duration-300">
+                    <svg className="w-3 h-3 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="px-6 pb-6">
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">{item.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

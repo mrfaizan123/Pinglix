@@ -1,0 +1,22 @@
+# ─── Pinglix robots.txt ────────────────────────────────────────────
+# Allow all search engine crawlers
+
+User-agent: *
+Allow: /
+Allow: /login
+Allow: /register
+
+# Block private/authenticated pages from indexing
+Disallow: /dashboard
+Disallow: /admin/
+Disallow: /api/
+
+# Block common bot traps
+Disallow: /*?*
+Disallow: /*.json$
+
+# Crawl delay (be respectful)
+Crawl-delay: 1
+
+# ─── Sitemap Location ────────────────────────────────────────────── 
+Sitemap: https://pinglix.onrender.com/sitemap.xml

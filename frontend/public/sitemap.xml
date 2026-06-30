@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ─── Homepage ─────────────────────────────────────────────── -->
+  <url>
+    <loc>https://pinglix.onrender.com/</loc>
+    <lastmod>2025-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://pinglix.onrender.com/og-image.png</image:loc>
+      <image:title>Pinglix – Free Website Uptime Monitoring Dashboard</image:title>
+      <image:caption>Real-time website uptime monitoring, latency charts, and cold start prevention</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ─── Login Page ───────────────────────────────────────────── -->
+  <url>
+    <loc>https://pinglix.onrender.com/login</loc>
+    <lastmod>2025-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ─── Register Page ───────────────────────────────────────── -->
+  <url>
+    <loc>https://pinglix.onrender.com/register</loc>
+    <lastmod>2025-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
