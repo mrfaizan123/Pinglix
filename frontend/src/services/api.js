@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// Create axios instance
+const baseURL = 'https://pinglix-backend.onrender.com/api' || 'http://localhost:5000/api'
 const api = axios.create({
-  baseURL: '/api', // Using Vite proxy
-  withCredentials: true, // Important for cookies
+  baseURL: baseURL,
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
   },
