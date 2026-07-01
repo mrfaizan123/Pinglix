@@ -30,6 +30,7 @@ router.route('/')
       body('url', 'Valid URL is required').isURL(),
       body('pingInterval', 'Ping interval must be between 1 and 10 minutes').optional().isInt({ min: 1, max: 10 })
     ],
+    validateRequest,
     addWebsite
   );
 
