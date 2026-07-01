@@ -16,10 +16,10 @@ const validateRequest = require('../middleware/validateRequest');
 
 const router = express.Router();
 
-// Public routes (No auth required)
+// Public routes 
 router.get('/:id/badge', getWebsiteBadge);
 
-// Protected routes (Auth required)
+
 router.use(protect);
 
 router.route('/')
@@ -30,7 +30,6 @@ router.route('/')
       body('url', 'Valid URL is required').isURL(),
       body('pingInterval', 'Ping interval must be between 1 and 10 minutes').optional().isInt({ min: 1, max: 10 })
     ],
-    validateRequest,
     addWebsite
   );
 

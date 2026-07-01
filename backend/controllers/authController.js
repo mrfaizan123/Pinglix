@@ -12,16 +12,16 @@ const signToken = (id) => {
 const sendTokenResponse = (user, statusCode, res) => {
   const token = signToken(user._id);
 
+  const isProduction = process.env.NODE_ENV === 'production';
+
   const options = {
     expires: new Date(
       Date.now() + 24 * 60 * 60 * 1000 // 1 day
     ),
     httpOnly: true,
+    secure: isProduction,          // HTTPS only in production
+    sameSite: isProduction ? 'None' : 'Lax', // 'None' required for cross-origin cookies
   };
-
-  if (process.env.NODE_ENV === 'production') {
-    options.secure = true;
-  }
 
   res
     .status(statusCode)
@@ -81,9 +81,12 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 });
 
 exports.logout = asyncHandler(async (req, res, next) => {
+  const isProduction = process.env.NODE_ENV === 'production';
   res.cookie('token', 'none', {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? 'None' : 'Lax',
   });
 
   res.status(200).json({
