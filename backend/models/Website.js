@@ -24,8 +24,36 @@ const websiteSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Please provide a ping interval in minutes'],
     default: 5,
-    min: [1, 'Minimum ping interval is 1 minute'],
+    min: [5, 'Minimum ping interval is 5 minutes'],
     max: [10, 'Maximum ping interval is 10 minutes'],
+  },
+  expectedStatusCode: {
+    type: Number,
+    default: 200,
+    min: [100, 'Expected status code must be between 100 and 599'],
+    max: [599, 'Expected status code must be between 100 and 599'],
+  },
+  expectedText: {
+    type: String,
+    trim: true,
+    default: '',
+  },
+  alertWebhookUrl: {
+    type: String,
+    trim: true,
+    default: null,
+  },
+  sslExpiryDate: {
+    type: Date,
+    default: null,
+  },
+  sslDaysRemaining: {
+    type: Number,
+    default: null,
+  },
+  lastSSLCheck: {
+    type: Date,
+    default: null,
   },
   status: {
     type: String,

@@ -1,62 +1,146 @@
 const axios = require('axios');
+const https = require('https');
+const tls = require('tls');
+const { URL } = require('url');
 const logger = require('../utils/logger');
-const Website = require('../models/Website');
 const PingLog = require('../models/PingLog');
 
 class PingService {
-  /**
-  
-   * @param {Number} intervalMinutes 
-   * @returns {Date}
-   */
+  static normalizePingInterval(intervalMinutes) {
+    const parsed = Number(intervalMinutes);
+    if (!Number.isFinite(parsed)) {
+      return 5;
+    }
+    return Math.min(10, Math.max(5, Math.round(parsed)));
+  }
+
   static calculateNextPing(intervalMinutes) {
+    const normalizedInterval = this.normalizePingInterval(intervalMinutes);
     const nextPing = new Date();
-    nextPing.setMinutes(nextPing.getMinutes() + intervalMinutes);
+    nextPing.setMinutes(nextPing.getMinutes() + normalizedInterval);
+    nextPing.setSeconds(nextPing.getSeconds() + Math.floor(Math.random() * 45) + 15);
     return nextPing;
   }
 
-  /**
-   
-   * @param {String} url 
-   * @returns {Promise<Boolean>}
-   */
+  static buildRequestConfig(url) {
+    const userAgents = [
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15',
+      'Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0',
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1',
+    ];
+    const acceptLanguages = ['en-US,en;q=0.9', 'en-GB,en;q=0.8', 'en;q=0.8,de;q=0.7'];
+    const proxyIps = ['104.16.120.15', '198.51.100.10', '203.0.113.42', '8.8.8.8'];
+    const ip = proxyIps[Math.floor(Math.random() * proxyIps.length)];
+
+    return {
+      timeout: 12000,
+      maxRedirects: 5,
+      headers: {
+        'User-Agent': userAgents[Math.floor(Math.random() * userAgents.length)],
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': acceptLanguages[Math.floor(Math.random() * acceptLanguages.length)],
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Cache-Control': 'no-cache',
+        Pragma: 'no-cache',
+        Referer: url.startsWith('http') ? url : 'https://www.google.com/',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-Forwarded-For': ip,
+        'X-Real-IP': ip,
+        'CF-Connecting-IP': ip,
+      },
+    };
+  }
+
+  static async getSSLInfo(url) {
+    try {
+      const parsedUrl = new URL(url);
+      if (!parsedUrl.protocol.startsWith('https')) {
+        return null;
+      }
+
+      return await new Promise((resolve) => {
+        const socket = tls.connect({
+          host: parsedUrl.hostname,
+          port: parsedUrl.port || 443,
+          servername: parsedUrl.hostname,
+          rejectUnauthorized: false,
+        }, () => {
+          const cert = socket.getPeerCertificate(true);
+          const expiryDate = cert && cert.valid_to ? new Date(cert.valid_to) : null;
+          const sslDaysRemaining = expiryDate ? Math.ceil((expiryDate - new Date()) / (1000 * 60 * 60 * 24)) : null;
+          socket.end();
+          resolve({
+            sslExpiryDate: expiryDate,
+            sslDaysRemaining,
+          });
+        });
+
+        socket.on('error', () => resolve(null));
+        socket.setTimeout(6000, () => {
+          socket.destroy();
+          resolve(null);
+        });
+      });
+    } catch (error) {
+      return null;
+    }
+  }
+
+  static async notifyWebhook(website, payload) {
+    if (!website?.alertWebhookUrl) {
+      return;
+    }
+
+    try {
+      await axios.post(website.alertWebhookUrl, payload, {
+        timeout: 5000,
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'Pinglix-Alert/1.0',
+        },
+      });
+    } catch (error) {
+      logger.warn(`Alert webhook failed for ${website.url}: ${error.message}`);
+    }
+  }
+
   static async validateURL(url) {
     try {
-      
-      await axios.get(url, { 
-        timeout: 5000,
-        headers: { 'User-Agent': 'Pinglix-Bot/1.0' }
+      await axios.get(url, {
+        ...this.buildRequestConfig(url),
+        timeout: 7000,
       });
       return true;
     } catch (error) {
-      if (error.response) return true; 
+      if (error.response) return true;
       return false;
     }
   }
 
-  /**
-   
-   * @param {Object} website - Mongoose Website Document
-   */
   static async pingWebsite(website) {
     const startTime = Date.now();
     let isSuccess = false;
     let statusCode = null;
     let errorMessage = null;
+    const previousStatus = website.status || 'unknown';
 
     try {
-      const response = await axios.get(website.url, { 
-        timeout: 10000,
-        headers: { 'User-Agent': 'Pinglix-Bot/1.0' }
-      });
+      const response = await axios.get(website.url, this.buildRequestConfig(website.url));
       statusCode = response.status;
-      isSuccess = statusCode >= 200 && statusCode < 400;
+      const expectedStatusCode = website.expectedStatusCode || 200;
+      const expectedText = (website.expectedText || '').trim();
+      const responseText = typeof response.data === 'string'
+        ? response.data
+        : JSON.stringify(response.data ?? {});
+      const textMatches = !expectedText || responseText.toLowerCase().includes(expectedText.toLowerCase());
+      isSuccess = statusCode >= 200 && statusCode < 400 && statusCode === expectedStatusCode && textMatches;
     } catch (error) {
       if (error.response) {
         statusCode = error.response.status;
         errorMessage = `HTTP Error ${statusCode}: ${error.response.statusText || 'Server Error'}`;
       } else if (error.code === 'ECONNABORTED') {
-        errorMessage = 'Connection Timeout (Took longer than 10s)';
+        errorMessage = 'Connection Timeout (Took longer than 12s)';
       } else if (error.code === 'ENOTFOUND') {
         errorMessage = 'DNS Resolution Failed (Check URL/domain)';
       } else if (error.code === 'ECONNREFUSED') {
@@ -74,15 +158,23 @@ class PingService {
     const responseTime = Date.now() - startTime;
     const status = isSuccess ? 'up' : 'down';
 
-    // Update Website Document
+    const sslInfo = await this.getSSLInfo(website.url);
+
     website.status = status;
     website.lastPing = new Date();
     website.nextPing = this.calculateNextPing(website.pingInterval);
     website.lastResponseTime = responseTime;
     website.lastStatusCode = statusCode;
+    website.lastSSLCheck = new Date();
+    if (sslInfo) {
+      website.sslExpiryDate = sslInfo.sslExpiryDate;
+      website.sslDaysRemaining = sslInfo.sslDaysRemaining;
+    } else {
+      website.sslExpiryDate = null;
+      website.sslDaysRemaining = null;
+    }
     await website.save();
 
-    // Create Ping Log
     await PingLog.create({
       websiteId: website._id,
       responseTime: isSuccess ? responseTime : null,
@@ -90,6 +182,19 @@ class PingService {
       success: isSuccess,
       errorMessage,
     });
+
+    if (website.alertWebhookUrl && (previousStatus === 'unknown' || previousStatus !== status)) {
+      await this.notifyWebhook(website, {
+        event: 'website_status_changed',
+        websiteName: website.websiteName,
+        url: website.url,
+        status,
+        statusCode,
+        responseTime,
+        errorMessage,
+        checkedAt: new Date().toISOString(),
+      });
+    }
 
     logger.info(`Pinged ${website.url} - Status: ${status} - Time: ${responseTime}ms`);
   }

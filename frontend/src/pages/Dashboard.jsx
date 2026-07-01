@@ -526,7 +526,16 @@ const Dashboard = () => {
                                   <ExternalLink size={13} />
                                 </a>
                               </div>
-                              <div className="text-xs font-semibold text-slate-400 mt-1.5 ml-6">Interval: {w.pingInterval}m • Checked {timeAgo(w.lastPing)}</div>
+                              <div className="text-xs font-semibold text-slate-400 mt-1.5 ml-6 flex flex-wrap gap-2">
+                                <span>Interval: {w.pingInterval}m</span>
+                                <span>• Expected HTTP {w.expectedStatusCode || 200}</span>
+                                {w.sslDaysRemaining !== null && w.sslDaysRemaining !== undefined ? (
+                                  <span>• SSL: {w.sslDaysRemaining}d</span>
+                                ) : (
+                                  <span>• SSL: n/a</span>
+                                )}
+                                <span>• Checked {timeAgo(w.lastPing)}</span>
+                              </div>
                             </td>
                             <td className="px-4 py-5"><StatusBadge status={w.status} /></td>
                             <td className="px-4 py-5 hidden md:table-cell">
@@ -712,6 +721,19 @@ const Dashboard = () => {
                                             ? `${Math.round(expandedLogs[w._id].filter(l => l.success).reduce((acc, curr) => acc + curr.responseTime, 0) / expandedLogs[w._id].filter(l => l.success).length)}ms`
                                             : '—'}
                                         </div>
+                                      </div>
+                                    </div>
+
+                                    <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/80 p-4 rounded-xl space-y-2">
+                                      <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Policy Checks</div>
+                                      <div className="text-sm text-slate-600 dark:text-slate-300">
+                                        <span className="font-semibold">Expected status:</span> {w.expectedStatusCode || 200}
+                                      </div>
+                                      <div className="text-sm text-slate-600 dark:text-slate-300">
+                                        <span className="font-semibold">Expected text:</span> {w.expectedText ? w.expectedText : 'Any content'}
+                                      </div>
+                                      <div className="text-sm text-slate-600 dark:text-slate-300">
+                                        <span className="font-semibold">SSL expiry:</span> {w.sslDaysRemaining !== null && w.sslDaysRemaining !== undefined ? `${w.sslDaysRemaining} days` : 'Not available'}
                                       </div>
                                     </div>
 

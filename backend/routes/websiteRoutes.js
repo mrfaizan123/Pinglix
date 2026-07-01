@@ -28,7 +28,9 @@ router.route('/')
     [
       body('websiteName', 'Website name is required').not().isEmpty(),
       body('url', 'Valid URL is required').isURL(),
-      body('pingInterval', 'Ping interval must be between 1 and 10 minutes').optional().isInt({ min: 1, max: 10 })
+      body('pingInterval', 'Ping interval must be between 5 and 10 minutes').optional().isInt({ min: 5, max: 10 }),
+      body('expectedStatusCode', 'Expected status code must be a valid HTTP code').optional().isInt({ min: 100, max: 599 }),
+      body('alertWebhookUrl', 'Alert webhook must be a valid URL').optional({ nullable: true }).isURL()
     ],
     validateRequest,
     addWebsite

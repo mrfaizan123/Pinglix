@@ -17,14 +17,12 @@ exports.getWebsites = asyncHandler(async (req, res, next) => {
 
 
 exports.addWebsite = asyncHandler(async (req, res, next) => {
-  const { websiteName, url, pingInterval } = req.body;
+  const { websiteName, url, pingInterval, alertWebhookUrl, expectedStatusCode, expectedText } = req.body;
 
-  
   const existingWebsite = await Website.findOne({ userId: req.user.id, url });
   if (existingWebsite) {
     return next(new AppError('You have already added this URL', 400));
   }
-
 
   const isValid = await PingService.validateURL(url);
   if (!isValid) {
@@ -35,12 +33,13 @@ exports.addWebsite = asyncHandler(async (req, res, next) => {
     userId: req.user.id,
     websiteName,
     url,
-    pingInterval: pingInterval || 5,
-   
-    nextPing: new Date() 
+    pingInterval: PingService.normalizePingInterval(pingInterval),
+    expectedStatusCode: Number.isFinite(Number(expectedStatusCode)) ? Number(expectedStatusCode) : 200,
+    expectedText: expectedText ? expectedText.trim() : '',
+    alertWebhookUrl: alertWebhookUrl ? alertWebhookUrl.trim() : null,
+    nextPing: new Date()
   });
 
- 
   await PingService.pingWebsite(website);
 
   res.status(201).json({
@@ -62,7 +61,25 @@ exports.updateWebsite = asyncHandler(async (req, res, next) => {
     return next(new AppError('Not authorized to update this website', 401));
   }
 
-  website = await Website.findByIdAndUpdate(req.params.id, req.body, {
+  const updateData = { ...req.body };
+
+  if (updateData.pingInterval !== undefined) {
+    updateData.pingInterval = PingService.normalizePingInterval(updateData.pingInterval);
+  }
+
+  if (updateData.expectedStatusCode !== undefined) {
+    updateData.expectedStatusCode = Number(updateData.expectedStatusCode);
+  }
+
+  if (updateData.expectedText !== undefined) {
+    updateData.expectedText = updateData.expectedText.trim();
+  }
+
+  if (updateData.alertWebhookUrl === '') {
+    updateData.alertWebhookUrl = null;
+  }
+
+  website = await Website.findByIdAndUpdate(req.params.id, updateData, {
     new: true,
     runValidators: true
   });
