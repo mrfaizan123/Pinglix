@@ -1607,3 +1607,42 @@
 {"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:39:00.010Z"}
 {"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:40:00.013Z"}
 {"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-06-30T18:41:00.014Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-02.ngaxhni.mongodb.net","timestamp":"2026-07-01T12:57:41.481Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-07-01T12:57:41.565Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-01T12:57:41.571Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T12:58:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T12:59:00.008Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:00:00.005Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:01:00.003Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:02:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:03:00.006Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:04:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:05:00.004Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:06:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:07:00.015Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:08:00.012Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:09:00.006Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:10:00.008Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:11:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:12:00.011Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:13:00.014Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:14:00.015Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:15:00.007Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:16:00.011Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:17:00.006Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:18:00.014Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:19:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:20:00.013Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:21:00.009Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:22:00.008Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-07-01T13:22:05.493Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-07-01T13:22:05.534Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-01T13:22:05.545Z"}
+{"level":"info","message":"MongoDB Connected: ac-db4igq6-shard-00-01.ngaxhni.mongodb.net","timestamp":"2026-07-01T13:22:16.134Z"}
+{"level":"info","message":"Global scheduler initialized.","timestamp":"2026-07-01T13:22:16.166Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-01T13:22:16.172Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:23:00.012Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:24:00.011Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:25:00.010Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:26:00.008Z"}
+{"level":"info","message":"Scheduler triggered, checking for websites to ping...","timestamp":"2026-07-01T13:27:00.012Z"}

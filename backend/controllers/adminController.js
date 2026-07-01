@@ -29,8 +29,10 @@ exports.adminLogin = asyncHandler(async (req, res, next) => {
   const options = {
     expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
     httpOnly: true,
+    path: '/',
     secure: isProduction,
     sameSite: isProduction ? 'None' : 'Lax',
+    maxAge: 24 * 60 * 60 * 1000,
   };
 
   res.status(200).cookie('token', token, options).json({
@@ -48,6 +50,7 @@ exports.adminLogout = asyncHandler(async (req, res, next) => {
   res.cookie('token', 'none', {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
+    path: '/',
     secure: isProduction,
     sameSite: isProduction ? 'None' : 'Lax',
   });

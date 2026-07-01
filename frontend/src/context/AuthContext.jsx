@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import api from '../services/api';
+import api, { clearToken, storeToken } from '../services/api';
 
 const AuthContext = createContext();
 
@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }) => {
         const res = await api.get('/auth/me');
         setUser(res.data.data);
       } catch (error) {
+        clearToken();
         setUser(null);
       } finally {
         setLoading(false);
@@ -27,18 +28,29 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const res = await api.post('/auth/login', { email, password });
+    if (res.data?.token) {
+      storeToken(res.data.token);
+    }
     setUser(res.data.data);
     return res.data;
   };
 
   const register = async (name, email, password) => {
     const res = await api.post('/auth/register', { name, email, password });
+    if (res.data?.token) {
+      storeToken(res.data.token);
+    }
     setUser(res.data.data);
     return res.data;
   };
 
   const logout = async () => {
-    await api.post('/auth/logout');
+    try {
+      await api.post('/auth/logout');
+    } catch (error) {
+      // Ignore logout errors and still clear local auth state
+    }
+    clearToken();
     setUser(null);
   };
 
