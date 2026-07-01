@@ -34,7 +34,7 @@ exports.addWebsite = asyncHandler(async (req, res, next) => {
     websiteName,
     url,
     pingInterval: PingService.normalizePingInterval(pingInterval),
-    expectedStatusCode: Number.isFinite(Number(expectedStatusCode)) ? Number(expectedStatusCode) : 200,
+    expectedStatusCode: expectedStatusCode !== undefined && expectedStatusCode !== '' ? Number(expectedStatusCode) : null,
     expectedText: expectedText ? expectedText.trim() : '',
     alertWebhookUrl: alertWebhookUrl ? alertWebhookUrl.trim() : null,
     nextPing: new Date()

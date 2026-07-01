@@ -457,11 +457,11 @@ const Home = () => {
             </h1>
 
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8">
-              Pinglix continuously tracks your endpoints, analyzes real-time latency, and prevents free-tier deployments from going to sleep. Trusted by <strong className="text-slate-900 dark:text-white">1,000+</strong> developers.
+              Pinglix continuously tracks your endpoints, analyzes real-time latency, and prevents free-tier deployments from going to sleep. Trusted by <strong className="text-slate-900 dark:text-white">100+</strong> developers.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-10">
-              <TrustBadge icon={Users} label="Active Users" value="1,000+" colorClass="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400" />
+              <TrustBadge icon={Users} label="Active Users" value="100+" colorClass="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400" />
               <TrustBadge icon={Award} label="Uptime SLA" value="90%" colorClass="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400" />
               <TrustBadge icon={Globe} label="Monitors Active" value="500+" colorClass="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400" />
             </div>
@@ -551,10 +551,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { icon: Activity, value: '500+', label: 'Monitors Active' },
+              { icon: Activity, value: '45+', label: 'Monitors Active' },
               { icon: Clock, value: '90%', label: 'Uptime SLA' },
-              { icon: Users, value: '1,000+', label: 'Happy Developers' },
-              { icon: RefreshCw, value: '100K+', label: 'Checks Performed' },
+              { icon: Users, value: '100+', label: 'Happy Developers' },
+              { icon: RefreshCw, value: '90K+', label: 'Checks Performed' },
             ].map((stat, i) => (
               <div key={i} className="group stat-item">
                 <div className="flex justify-center mb-3">

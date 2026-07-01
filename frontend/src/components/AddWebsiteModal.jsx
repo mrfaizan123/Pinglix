@@ -20,8 +20,6 @@ const AddWebsiteModal = ({ isOpen, onClose, onSuccess }) => {
         websiteName: data.websiteName,
         url: data.url,
         pingInterval: parseInt(data.pingInterval),
-        expectedStatusCode: Number(data.expectedStatusCode) || 200,
-        expectedText: data.expectedText?.trim() || '',
         alertWebhookUrl: data.alertWebhookUrl?.trim() || undefined
       });
       reset();
@@ -90,28 +88,6 @@ const AddWebsiteModal = ({ isOpen, onClose, onSuccess }) => {
               <option value="10">10 Minutes (Max Interval)</option>
             </select>
             <p className="text-xs text-slate-500 mt-1.5">Checks are spaced naturally and stay between 5 and 10 minutes.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Expected HTTP Status</label>
-              <input
-                type="number"
-                {...register('expectedStatusCode', { valueAsNumber: true })}
-                defaultValue={200}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                placeholder="200"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1.5 text-slate-700 dark:text-slate-300">Expected Response Text</label>
-              <input
-                type="text"
-                {...register('expectedText')}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                placeholder="e.g. OK"
-              />
-            </div>
           </div>
 
           <div>

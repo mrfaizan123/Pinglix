@@ -29,7 +29,7 @@ const websiteSchema = new mongoose.Schema({
   },
   expectedStatusCode: {
     type: Number,
-    default: 200,
+    default: null,
     min: [100, 'Expected status code must be between 100 and 599'],
     max: [599, 'Expected status code must be between 100 and 599'],
   },

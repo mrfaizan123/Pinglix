@@ -128,17 +128,15 @@ class PingService {
     try {
       const response = await axios.get(website.url, this.buildRequestConfig(website.url));
       statusCode = response.status;
-      const expectedStatusCode = website.expectedStatusCode || 200;
-      const expectedText = (website.expectedText || '').trim();
-      const responseText = typeof response.data === 'string'
-        ? response.data
-        : JSON.stringify(response.data ?? {});
-      const textMatches = !expectedText || responseText.toLowerCase().includes(expectedText.toLowerCase());
-      isSuccess = statusCode >= 200 && statusCode < 400 && statusCode === expectedStatusCode && textMatches;
+      isSuccess = statusCode >= 200 && statusCode < 500;
     } catch (error) {
       if (error.response) {
         statusCode = error.response.status;
-        errorMessage = `HTTP Error ${statusCode}: ${error.response.statusText || 'Server Error'}`;
+        const isReachable = statusCode >= 200 && statusCode < 500;
+        isSuccess = isReachable;
+        if (!isSuccess) {
+          errorMessage = `HTTP Error ${statusCode}: ${error.response.statusText || 'Server Error'}`;
+        }
       } else if (error.code === 'ECONNABORTED') {
         errorMessage = 'Connection Timeout (Took longer than 12s)';
       } else if (error.code === 'ENOTFOUND') {

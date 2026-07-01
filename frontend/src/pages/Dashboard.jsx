@@ -528,7 +528,7 @@ const Dashboard = () => {
                               </div>
                               <div className="text-xs font-semibold text-slate-400 mt-1.5 ml-6 flex flex-wrap gap-2">
                                 <span>Interval: {w.pingInterval}m</span>
-                                <span>• Expected HTTP {w.expectedStatusCode || 200}</span>
+                                <span>• Reachable response</span>
                                 {w.sslDaysRemaining !== null && w.sslDaysRemaining !== undefined ? (
                                   <span>• SSL: {w.sslDaysRemaining}d</span>
                                 ) : (
@@ -724,16 +724,10 @@ const Dashboard = () => {
                                       </div>
                                     </div>
 
-                                    <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/80 p-4 rounded-xl space-y-2">
-                                      <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Policy Checks</div>
-                                      <div className="text-sm text-slate-600 dark:text-slate-300">
-                                        <span className="font-semibold">Expected status:</span> {w.expectedStatusCode || 200}
-                                      </div>
-                                      <div className="text-sm text-slate-600 dark:text-slate-300">
-                                        <span className="font-semibold">Expected text:</span> {w.expectedText ? w.expectedText : 'Any content'}
-                                      </div>
-                                      <div className="text-sm text-slate-600 dark:text-slate-300">
-                                        <span className="font-semibold">SSL expiry:</span> {w.sslDaysRemaining !== null && w.sslDaysRemaining !== undefined ? `${w.sslDaysRemaining} days` : 'Not available'}
+                                    <div className="bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/80 p-4 rounded-xl">
+                                      <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">SSL expiry</div>
+                                      <div className="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                                        {w.sslDaysRemaining !== null && w.sslDaysRemaining !== undefined ? `${w.sslDaysRemaining} days` : 'Not available'}
                                       </div>
                                     </div>
 
