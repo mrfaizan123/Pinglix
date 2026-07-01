@@ -463,7 +463,7 @@ const Home = () => {
             <div className="flex flex-wrap gap-4 mb-10">
               <TrustBadge icon={Users} label="Active Users" value="100+" colorClass="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400" />
               <TrustBadge icon={Award} label="Uptime SLA" value="90%" colorClass="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400" />
-              <TrustBadge icon={Globe} label="Monitors Active" value="500+" colorClass="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400" />
+              <TrustBadge icon={Globe} label="Monitors Active" value="45+" colorClass="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400" />
             </div>
 
             <div className="flex flex-wrap gap-4">
@@ -497,7 +497,7 @@ const Home = () => {
                 ))}
               </div>
               <div>
-                <div className="text-sm font-semibold">Join 1,000+ developers</div>
+                <div className="text-sm font-semibold">Join 100+ developers</div>
                 <div className="text-xs text-slate-500 dark:text-slate-400">Trusted by teams worldwide</div>
               </div>
             </div>
@@ -631,7 +631,7 @@ const Home = () => {
               <Heart size={13} className="text-red-500" />
               Developer Testimonials
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4">Loved by <span className="text-blue-600 dark:text-blue-400">1,000+</span> developers</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4">Loved by <span className="text-blue-600 dark:text-blue-400">100+</span> developers</h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-lg">
               See why thousands of developers trust Pinglix to keep their infrastructure highly available.
             </p>
